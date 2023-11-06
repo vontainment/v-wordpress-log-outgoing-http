@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Log External Connections
  * Description: Logs all external communications from WordPress to a file.
@@ -6,7 +7,13 @@
  * Author: Vontainment
  */
 
-function log_external_connections($args, $url) {
+// Abort the execution if the Wordpress URL is not set
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+function log_external_connections($args, $url)
+{
     // Get the current date and time.
     $date = date('Y-m-d H:i:s');
 
